@@ -9,7 +9,7 @@ export type Task = {
     order: number;
     content: string;
     description: string;
-    completed: false;
+    completed: boolean;
     label_ids: number[];
     priority: number;
     comment_count: number;
