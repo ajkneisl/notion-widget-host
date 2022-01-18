@@ -4,6 +4,7 @@ import { Task } from "../api/todoist";
 import styles from "../../styles/todoist.module.scss";
 import logo from "../../public/todoist.png";
 import Image from "next/image";
+import ReactMarkdown from 'react-markdown'
 
 export default function Index() {
     const [taskData, setTaskData] = useState(null as Task | null);
@@ -47,12 +48,12 @@ export default function Index() {
                 <p className={styles.todoistContent}>{taskData.content}</p>
 
                 {taskData.description !== "" && (
-                    <p className={styles.todoistDescription}>
+                    <ReactMarkdown className={styles.todoistDescription}>
                         {taskData.description}
-                    </p>
+                    </ReactMarkdown>
                 )}
 
-                <p className={styles.dueDate}>{(taskData?.due?.date ? taskData.due.date : "no due date")}</p>
+                <ReactMarkdown className={styles.dueDate}>{(taskData?.due?.date ? taskData.due.date : "no due date")}</ReactMarkdown>
             </div>
         </div>
     } else {

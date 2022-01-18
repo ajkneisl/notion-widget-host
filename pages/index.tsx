@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react"
 import styles from "../styles/home.module.scss"
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {CopyToClipboard} from 'react-copy-to-clipboard'
 
 const Index = () => {
     const [todoistValue, setTodoistValue] = useState("https://todoist.com/showTask?id=123456")
