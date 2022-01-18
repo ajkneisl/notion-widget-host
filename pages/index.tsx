@@ -16,7 +16,7 @@ const Index = () => {
         if (todoistAuth !== "")
             localStorage.setItem("todoistAuth", todoistAuth)
 
-        setTodoistAllTask(`https://notion-widget-host.vercel.app/todoist?auth=` + todoistAuth)
+        setTodoistAllTask(`https://notion-widget-host.vercel.app/todoist/alltasks?auth=` + todoistAuth)
     }, [todoistAuth])
 
     const todoistGenerate = () => {
