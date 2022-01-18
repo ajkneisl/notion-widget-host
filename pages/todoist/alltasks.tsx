@@ -4,7 +4,6 @@ import { Task } from "../api/todoist";
 import styles from "../../styles/todoist.module.scss";
 import logo from "../../public/todoist.png";
 import Image from "next/image";
-import ReactMarkdown from 'react-markdown'
 
 export default function Alltasks() {
     const [tasks, setTasks] = useState([] as Task[]);
@@ -37,7 +36,7 @@ export default function Alltasks() {
                     />
                 </div>
 
-                <ReactMarkdown className={styles.todoistContent}>{tasks.length} uncompleted tasks.</ReactMarkdown>
+                <p className={styles.todoistContent}>{tasks.length} uncompleted tasks.</p>
             </div>
         </div>
     } else {

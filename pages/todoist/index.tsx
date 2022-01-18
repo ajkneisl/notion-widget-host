@@ -45,7 +45,7 @@ export default function Index() {
                     />
                 </div>
 
-                <p className={styles.todoistContent}>{taskData.content}</p>
+                <ReactMarkdown className={styles.todoistContent}>{taskData.content}</ReactMarkdown>
 
                 {taskData.description !== "" && (
                     <ReactMarkdown className={styles.todoistDescription}>
