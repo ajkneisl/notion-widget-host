@@ -1,0 +1,46 @@
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.widget {
+  margin: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.widgetHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.widgetControls {
+  margin-top: 5px;
+
+  button {
+    margin-left: 4px;
+  }
+}
+
+.textArea {
+  resize: none;
+  width: 300px;
+  height: 100px;
+}
+
+.todoistAuth {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.todoistWidgets {
+  display: flex;
+  flex-direction: row;
+}
