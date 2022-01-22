@@ -2,7 +2,6 @@ import React, {useEffect, useState} from "react"
 import styles from "../styles/home.module.scss"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Config} from "../src/util";
-import {SingleTaskQuery} from "./todoist";
 import {AllTasksQuery} from "./todoist/alltasks";
 
 const Index = () => {
