@@ -4,23 +4,33 @@ import { Task } from "../api/todoist";
 import styles from "../../styles/todoist.module.scss";
 import logo from "../../public/todoist.png";
 import Image from "next/image";
+import {useDecoder, Config} from "../../src/util";
+
+export type AllTasksQuery = {
+    auth: string,
+    project?: string
+}
 
 export default function Alltasks() {
+    const router = useRouter();
+    const { val } = router.query;
+
+    const { backgroundColor, queryParameters: { auth, project } } = useDecoder<AllTasksQuery>(val as string)
+
     const [tasks, setTasks] = useState([] as Task[]);
 
-    const router = useRouter();
-    const { auth, project } = router.query;
-
     useEffect(() => {
-        const loadTasks = async () => {
-            const task = await (
-                await fetch(`/api/todoist?auth=${auth}` + (project ? `&project=${project}` : ""))
-            ).json()
+        if (auth) {
+            const loadTasks = async () => {
+                const task = await (
+                    await fetch(`/api/todoist?auth=${auth}` + (project ? `&project=${project}` : ""))
+                ).json()
 
-            setTasks(task as Task[]);
-        };
+                setTasks(task as Task[]);
+            };
 
-        loadTasks();
+            loadTasks();
+        }
     }, [auth, project]);
 
     if (tasks.length !== 0) {

@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from "react"
 import styles from "../styles/home.module.scss"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
+import {Config} from "../src/util";
+import {SingleTaskQuery} from "./todoist";
+import {AllTasksQuery} from "./todoist/alltasks";
 
 const Index = () => {
     const [todoistValue, setTodoistValue] = useState("https://todoist.com/showTask?id=123456")
@@ -16,7 +19,17 @@ const Index = () => {
         if (todoistAuth !== "")
             localStorage.setItem("todoistAuth", todoistAuth)
 
-        setTodoistAllTask(`https://notion-widget-host.vercel.app/todoist/alltasks?auth=` + todoistAuth)
+        const config: Config<AllTasksQuery> = {
+            backgroundColor: "white",
+            queryParameters: {
+                auth: todoistAuth
+            }
+        }
+
+        setTodoistAllTask(
+            `https://notion-widget-host.vercel.app/todoist/alltasks?val=`
+            + Buffer.from(JSON.stringify(config), 'ascii').toString('base64')
+        )
     }, [todoistAuth])
 
     const todoistGenerate = () => {
@@ -28,13 +41,20 @@ const Index = () => {
         }
 
         if (!content || content === "" || content == null) {
-
         } else {
             if (content.includes("https://todoist.com/showTask?id=")) {
                 content = content?.substring(32)
             }
 
-            setTodoistValue(`https://notion-widget-host.vercel.app/todoist?task=${content}&auth=` + todoistAuth)
+            const config: Config<SingleTaskQuery> = {
+                backgroundColor: "white",
+                queryParameters: {
+                    auth: todoistAuth,
+                    task: content
+                }
+            }
+
+            setTodoistValue(`https://notion-widget-host.vercel.app/todoist?val=` + Buffer.from(JSON.stringify(config), 'ascii').toString('base64'))
         }
     }
 
