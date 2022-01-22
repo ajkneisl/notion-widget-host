@@ -3,6 +3,7 @@ import styles from "../styles/home.module.scss"
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import {Config} from "../src/util";
 import {AllTasksQuery} from "./todoist/alltasks";
+import {SingleTaskQuery} from "./todoist";
 
 const Index = () => {
     const [todoistValue, setTodoistValue] = useState("https://todoist.com/showTask?id=123456")
