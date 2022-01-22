@@ -15,7 +15,7 @@ export default function Index() {
     const [taskData, setTaskData] = useState(null as Task | null);
 
     const router = useRouter();
-    const { queryParameters: { auth, task } } = useDecoder<SingleTaskQuery>(router.query.val as string);
+    const { queryParameters: { auth, task }, backgroundColor } = useDecoder<SingleTaskQuery>(router.query.val as string);
 
     useEffect(() => {
         if (auth && task) {
@@ -32,7 +32,7 @@ export default function Index() {
     }, [auth, task]);
 
     if (taskData) {
-        return <div className={styles.container}>
+        return <div className={styles.container} style={{ backgroundColor: backgroundColor }}>
             <div
                 className={
                     styles.todoistContainer +

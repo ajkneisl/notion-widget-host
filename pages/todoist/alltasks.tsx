@@ -34,7 +34,7 @@ export default function Alltasks() {
     }, [auth, project]);
 
     if (tasks.length !== 0) {
-        return <div className={styles.container}>
+        return <div className={styles.container} style={{ backgroundColor: backgroundColor }}>
             <div className={styles.todoistContainer}>
                 <div>
                     <Image
