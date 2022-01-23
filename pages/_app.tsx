@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
               <title>Notion Widgets</title>
               <meta name="description" content="Notion widgets" />
-              <meta name="viewport" content="width=device-width, initial-scale=1"/>
+              <meta name="viewport" content="width=device-width"/>
               <link rel="icon" href="/favicon.ico" />
           </Head>
           <Component {...pageProps} />

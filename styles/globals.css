@@ -5,7 +5,11 @@ body {
     padding: 0;
     margin: 0;
     font-family: "Open Sans", sans-serif;
-    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
 }
 
 textarea, input, button {
